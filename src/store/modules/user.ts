@@ -10,14 +10,14 @@ const getters = {}
 
 // actions
 
-async function loginAction({commit, state}, params: any = {}) {
-  　let result = await userAPI.login(params)
-    if(result.status) {
-      commit('LOGIN_REQ_OK', state, result.data)
-    } else {
-      commit('LOGIN_REQ_FAIL', state, {"msg": "fail_to_login"})
-    }
+async function loginAction({ commit, state }, params: any = {}) {
+  let result = await userAPI.login(params)
+  if (result.status) {
+    commit('LOGIN_REQ_OK', state, result.data)
+  } else {
+    commit('LOGIN_REQ_FAIL', state, { "msg": "fail_to_login" })
   }
+}
 
 const actions = {
   loginAction: loginAction

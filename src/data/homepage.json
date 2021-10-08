@@ -1,0 +1,321 @@
+{
+  "site": {
+    "name": "Stardust Network",
+    "name_jp": "Stardust Network",
+    "name_en": "Stardust Network"
+  },
+  "copyright": {
+    "name": "Created by Stardust Network Co.",
+    "name_jp": "Created by Stardust Network Co.",
+    "name_en": "Created by Stardust Network Co."
+  },
+  "record_no": {
+    "name": "沪ICP备15017782号",
+    "name_jp": "沪ICP备15017782号",
+    "link": "https://beian.miit.gov.cn/"
+  },
+  "menu": {
+    "items": [{
+        "name": "首页",
+        "name_jp": "首页",
+        "name_en": "Home",
+        "link": "/"
+      },
+      {
+        "name": "流程",
+        "name_jp": "流程",
+        "name_en": "Workflow",
+        "link": "/platform/workflow"
+      },
+      {
+        "name": "项目",
+        "name_jp": "项目",
+        "name_en": "Projects",
+        "link": "/platform/projects"
+      },
+      {
+        "name": "文档",
+        "name_jp": "文档",
+        "name_en": "Docs",
+        "link": "/platform/docs"
+      },
+      {
+        "name": "关于",
+        "name_jp": "关于",
+        "name_en": "About US",
+        "link": "/platform/about_us"
+      },
+      {
+        "name": "登录",
+        "name_jp": "登录",
+        "name_en": "Login",
+        "link": "/account/login"
+      },
+      {
+        "name": "注册",
+        "name_jp": "注册",
+        "name_en": "Regist",
+        "link": "/account/regist"
+      },
+      {
+        "name": "语言",
+        "name_jp": "语言",
+        "name_en": "Language",
+        "type": "language",
+        "items": [
+          {
+            "name": "中文",
+            "name_jp": "中文",
+            "name_en": "中文",
+            "value": "cn"
+          },
+          {
+            "name": "English",
+            "name_jp": "English",
+            "name_en": "English",
+            "value": "en"
+          },
+          {
+            "name": "Jap",
+            "name_jp": "Jap",
+            "name_en": "Jap",
+            "value": "jp"
+          }
+        ]
+      }
+    ]
+  },
+  "welcome": {
+    "name": "欢迎来到StardustNetwork",
+    "name_jp": "欢迎来到StardustNetwork",
+    "name_en": "Welcome to Stardust Network",
+    "summary": "帮助人们更便捷的构建互联网应用",
+    "summary_jp": "帮助人们更便捷的构建互联网应用",
+    "summary_en": "Help people build web applications more conveniently",
+    "button_text": "进入Stardust Network",
+    "button_text_jp": "进入Stardust Network",
+    "button_text_en": "Enter Stardust Network",
+    "chart": "https://liyang-assets.explorium.cn/stardust/homepage/FinanceManagement.svg"
+  },
+  "get_start": {
+    "name": "开始",
+    "name_jp": "开始",
+    "name_en": "Get Start",
+    "text": "Stardust Network是一个互联网SaaS平台，可以帮助您轻松的建立您基于互联网的业务。我们建议您深入的了解系统的功能并应用在您的业务中。我们真诚的期待与您的合作。",
+    "text_jp": "Stardust Network是一个互联网SaaS平台，可以帮助您轻松的建立您基于互联网的业务。我们建议您深入的了解系统的功能并应用在您的业务中。我们真诚的期待与您的合作。",
+    "text_en": "Stardust Network is an Internet SaaS platform, which can help you easily build your business system. We recommend that you have a deep understanding of our system and use it in your business. We sincerely look forward to cooperating with you.",
+    "chart": "https://liyang-assets.explorium.cn/stardust/homepage/office.svg"
+  },
+  "projects": {
+    "name": "项目",
+    "name_jp": "项目",
+    "name_en": "Projects",
+    "items": [{
+        "name": "电商系统",
+        "name_jp": "电商系统",
+        "name_en": "E-Shop System",
+        "summary": "非常轻量级的电商系统，帮助您构建您的线上商城",
+        "summary_jp": "非常轻量级的电商系统，帮助您构建您的线上商城",
+        "summary_en": "Very lightweight e-commerce system to help you build your online store",
+        "image": "https://liyang-assets.explorium.cn/stardust/homepage/shop_icon.svg"
+      },
+      {
+        "name": "客户关系管理系统",
+        "name_jp": "客户关系管理系统",
+        "name_en": "CRM",
+        "summary": "帮助您轻松的收集和管理客户信息，管理您的私域流量",
+        "summary_jp": "帮助您轻松的收集和管理客户信息，管理您的私域流量",
+        "summary_en": "Help you easily collect and manage customer information and manage your private domain traffic",
+        "image": "https://liyang-assets.explorium.cn/stardust/homepage/crm_icon.svg"
+      },
+      {
+        "name": "内容管理系统",
+        "name_jp": "内容管理系统",
+        "name_en": "CMS",
+        "summary": "帮助您编辑和管理您的数字资源：文章、图片、视频等内容",
+        "summary_jp": "帮助您编辑和管理您的数字资源：文章、图片、视频等内容",
+        "summary_en": "Help you edit and manage your digital resources: articles, pictures, videos, etc.",
+        "image": "https://liyang-assets.explorium.cn/stardust/homepage/applications.svg"
+      },
+      {
+        "name": "应用程序管理系统",
+        "name_jp": "应用程序管理系统",
+        "name_en": "Applications System",
+        "summary": "我们有丰富的开发经验，可以帮助您定制您想要的应用程序、网站、H5、小程序、手机App等",
+        "summary_jp": "我们有丰富的开发经验，可以帮助您定制您想要的应用程序、网站、H5、小程序、手机App等",
+        "summary_en": "We have rich development experience and can help you customize the applications, websites, H5, applets, mobile apps, etc. you want",
+        "image": "https://liyang-assets.explorium.cn/stardust/homepage/cms_icon.svg"
+      }
+    ]
+  },
+  "workflow": {
+    "name": "工作流程",
+    "name_jp": "工作流程",
+    "name_en": "Wortflow",
+    "items": [{
+        "id": 1,
+        "name": "提出开发需求",
+        "name_jp": "提出开发需求",
+        "name_en": "Propose development needs",
+        "by": [
+          "customer"
+        ],
+        "chart": "https://liyang-assets.explorium.cn/stardust/homepage/request.svg"
+      },
+      {
+        "id": 2,
+        "name": "分析开发需求",
+        "name_jp": "分析开发需求",
+        "name_en": "Analyze development needs",
+        "by": [
+          "platform"
+        ],
+        "chart": "https://liyang-assets.explorium.cn/stardust/homepage/request_analysis.svg"
+      },
+      {
+        "id": 3,
+        "name": "提出系统设计方案和报价",
+        "name_jp": "提出系统设计方案和报价",
+        "name_en": "Propose system design plan and quotation",
+        "by": [
+          "platform"
+        ],
+        "chart": "https://liyang-assets.explorium.cn/stardust/homepage/pricing.svg"
+      },
+      {
+        "id": 4,
+        "name": "沟通项目细节并签订开发合同",
+        "name_jp": "沟通项目细节并签订开发合同",
+        "name_en": "Communicate project details and sign development contracts",
+        "by": [
+          "platform",
+          "customer"
+        ],
+        "chart": "https://liyang-assets.explorium.cn/stardust/homepage/make_contract.svg"
+      },
+      {
+        "id": 5,
+        "name": "根据合同约定完成项目需求",
+        "name_jp": "根据合同约定完成项目需求",
+        "name_en": "Complete the project requirements according to the contract",
+        "by": [
+          "platform"
+        ],
+        "chart": "https://liyang-assets.explorium.cn/stardust/homepage/complete_work.svg"
+      },
+      {
+        "id": 6,
+        "name": "按照合同交付用户",
+        "name_jp": "按照合同交付用户",
+        "name_en": "Deliver to users according to contract",
+        "by": [
+          "platform"
+        ],
+        "chart": "https://liyang-assets.explorium.cn/stardust/homepage/deliver_customer.svg"
+      },
+      {
+        "id": 7,
+        "name": "客户验收项目",
+        "name_jp": "客户验收项目",
+        "name_en": "Customer Acceptance Project",
+        "by": [
+          "customer"
+        ],
+        "chart": "https://liyang-assets.explorium.cn/stardust/homepage/acceptance_project.svg"
+      }
+    ]
+  },
+  "links": {
+    "name": "链接",
+    "name_jp": "链接",
+    "name_en": "Links",
+    "items": [{
+        "title": "项目",
+        "title_en": "Projects",
+        "items": [{
+            "name": "电商系统",
+            "name_jp": "电商系统",
+            "name_en": "E-Shop System",
+            "link": "#"
+          },
+          {
+            "name": "客户关系管理系统",
+            "name_jp": "客户关系管理系统",
+            "name_en": "CRM",
+            "link": "#"
+          },
+          {
+            "name": "内容管理系统",
+            "name_jp": "内容管理系统",
+            "name_en": "CMS",
+            "link": "#"
+          },
+          {
+            "name": "应用程序管理系统",
+            "name_jp": "应用程序管理系统",
+            "name_en": "Applications System",
+            "link": "#"
+          }
+        ]
+      },
+      {
+        "title": "联系方式",
+        "title_en": "Contacts",
+        "items": [{
+            "name": "项目留言板",
+            "name_jp": "项目留言板",
+            "name_en": "Message board",
+            "link": "#"
+          },
+          {
+            "name": "微信小程序",
+            "name_jp": "微信小程序",
+            "name_en": "Wechat miniprogram",
+            "link": "#"
+          },
+          {
+            "name": "邮件",
+            "name_jp": "邮件",
+            "name_en": "E-Mail",
+            "link": "#"
+          },
+          {
+            "name": "电话",
+            "name_jp": "电话",
+            "name_en": "Telephone",
+            "link": "#"
+          }
+        ]
+      },
+      {
+        "title": "开发者",
+        "title_en": "Developers",
+        "items": [{
+            "name": "开始使用",
+            "name_jp": "开始使用",
+            "name_en": "Get Start",
+            "link": "#"
+          },
+          {
+            "name": "文档",
+            "name_jp": "文档",
+            "name_en": "Docs",
+            "link": "#"
+          },
+          {
+            "name": "案例",
+            "name_jp": "案例",
+            "name_en": "Examples",
+            "link": "#"
+          },
+          {
+            "name": "Github",
+            "name_jp": "Github",
+            "name_en": "Github",
+            "link": "#"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,41 +1,37 @@
 <template>
   <div class="home">
-    <HomeHeader msg="Welcome to Your Vue.js App" :menuArray="menuArray" />
-    <HomeIntro />
-    <div style="height: 30px; width: 100%;"></div>
-    <Footer />
+    <div class="bg-blue-800" style="height: 80px;">
+      <Myheader :settings="settings"/>
+    </div>
+    <div class="body">
+      <Mybody :settings="settings"></Mybody>
+      <Myworkflow :settings="settings"></Myworkflow>
+    </div>
+    <div class="foot">
+      <Myfooter :settings="settings"></Myfooter>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HomeHeader from "@/components/HomeHeader.vue";
-import HomeIntro from "@/components/HomeIntro.vue";
-import Footer from "@/components/Footer.vue";
+import Myheader from "@/components/header.vue";
+import Mybody from "@/components/body.vue";
+import Myfooter from "@/components/footer.vue";
+import Myworkflow from "@/components/workflow.vue";
+import homepageSettings from "@/data/homepage"
 
 export default {
   name: "Home",
   components: {
-    HomeHeader,
-    HomeIntro,
-    Footer
+    Myheader,
+    Mybody,
+    Myfooter,
+    Myworkflow
   },
   data() {
     return {
-      menuArray: [
-        {
-          title: "Product",
-        },
-        {
-          title: "Features",
-        },
-        {
-          title: "Marketplace",
-        },
-        {
-          title: "Company2",
-        }
-      ],
+      settings: homepageSettings
     };
   },
 };

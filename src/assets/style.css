@@ -1,0 +1,20 @@
+.container-xl {
+    width: 1280px;
+}
+
+
+.container-sm {
+    width: 100%
+}
+
+.chart-md {
+    height: 600px
+}
+
+.chart {
+    height: 400px
+}
+
+.md-width {
+    width: 100%
+}

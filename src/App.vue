@@ -1,5 +1,8 @@
 <template>
-  <router-view/>
+  <div>
+    <Message ref="Message" />
+    <router-view />
+  </div>
 </template>
 
 <style>
@@ -24,3 +27,18 @@
   color: #42b983;
 } */
 </style>
+<script>
+import Message from "./components/message.vue";
+import { mapState, mapActions } from "vuex";
+export default {
+  components: {
+    Message
+  },
+  created() {
+    // this.$nextTick(()=> {
+    //   this.$refs.Message.showMessage('error', '11122121212')
+      
+    // })
+  }
+};
+</script>

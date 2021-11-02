@@ -1,5 +1,4 @@
 const colors = require('tailwindcss/colors')
-console.log('colors:', colors)
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
@@ -8,7 +7,9 @@ module.exports = {
     colors: {
       ...colors,
       myBlue: {
-        DEFAULT: '#000011'
+        DEFAULT: '#000011',
+        primary: '#3C66A0',
+        light: '#79CCFF'
       }
     },
     fontFamily: {

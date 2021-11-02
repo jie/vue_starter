@@ -31,30 +31,26 @@
           alt="Workflow"
         />
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          {{ $t("login.sign_in_to_your_account") }}
+          {{ $t("login.regist_a_new_account") }}
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
           {{ $t("base.or") }}
           <router-link
-            :to="{ name: 'Regist' }"
+            :to="{ name: 'Login' }"
             class="font-medium text-myBlue-primary hover:text-myBlue-light"
           >
-            {{ $t("login.regist_a_new_account") }}
+            {{ $t("login.sign_in_to_your_account") }}
           </router-link>
         </p>
       </div>
       <div class="mt-8 space-y-6" method="POST">
-        <input type="hidden" name="remember" value="true" />
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
-            <label for="email-address" class="sr-only">{{
-              $t("base.email")
-            }}</label>
+            <label for="nickname" class="sr-only">{{ $t("base.email") }}</label>
             <input
-              id="email-address"
-              name="email"
-              type="email"
-              v-model="email"
+              id="nickname"
+              name="nickname"
+              v-model="nickname"
               required
               class="
                 appearance-none
@@ -69,7 +65,37 @@
                 text-gray-900
                 rounded-t-md
                 focus:outline-none
-                focus:ring-myBlue-primary
+                focus:ring-myBlue-light
+                focus:border-myBlue-light
+                focus:z-10
+                sm:text-sm
+              "
+              :placeholder="$t('base.nickname')"
+            />
+          </div>
+          <div>
+            <label for="email-address" class="sr-only">{{
+              $t("base.email")
+            }}</label>
+            <input
+              id="email-address"
+              name="email"
+              type="email"
+              required
+              v-model="email"
+              class="
+                appearance-none
+                rounded-none
+                relative
+                block
+                w-full
+                px-3
+                py-2
+                border border-gray-300
+                placeholder-gray-500
+                text-gray-900
+                focus:outline-none
+                focus:ring-myBlue-light
                 focus:border-myBlue-light
                 focus:z-10
                 sm:text-sm
@@ -99,12 +125,42 @@
                 placeholder-gray-500
                 text-gray-900
                 focus:outline-none
-                focus:ring-myBlue-primary
+                focus:ring-myBlue-light
                 focus:border-myBlue-light
                 focus:z-10
                 sm:text-sm
               "
               :placeholder="$t('base.password')"
+            />
+          </div>
+          <div>
+            <label for="password" class="sr-only">{{
+              $t("base.repeat_password")
+            }}</label>
+            <input
+              id="repeat_password"
+              name="repeat_password"
+              type="password"
+              v-model="repeat_password"
+              required
+              class="
+                appearance-none
+                rounded-none
+                relative
+                block
+                w-full
+                px-3
+                py-2
+                border border-gray-300
+                placeholder-gray-500
+                text-gray-900
+                focus:outline-none
+                focus:ring-myBlue-light
+                focus:border-myBlue-light
+                focus:z-10
+                sm:text-sm
+              "
+              :placeholder="$t('base.repeat_password')"
             />
           </div>
           <div class="relative">
@@ -138,16 +194,17 @@
             />
             <img
               class="absolute right-1 top-1 z-10 rounded-md"
-              @click="refreshCaptchaImage"
-              :src="currentCaptchaImage.url"
+              @click="createCaptchaImage"
+              :src="captchaSrc"
               alt=""
               style="height: 30px"
             />
           </div>
         </div>
+
         <div>
           <button
-            @click="login"
+            @click="regist"
             class="
               group
               relative
@@ -164,15 +221,18 @@
               bg-myBlue-light
               hover:bg-myBlue-primary
               focus:outline-none
-              focus:ring-2
-              focus:bg-myBlue-light
-              focus:bg-myBlue-primary
+              focus:ring-2 focus:ring-offset-2 focus:ring-myBlue-light
             "
           >
             <span class="absolute left-0 inset-y-0 flex items-center pl-3">
               <!-- Heroicon name: solid/lock-closed -->
               <svg
-                class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                class="
+                  h-5
+                  w-5
+                  text-myBlue-primary
+                  group-hover:text-myBlue-light
+                "
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -185,40 +245,8 @@
                 />
               </svg>
             </span>
-            {{ $t("base.signin") }}
+            {{ $t("base.regist") }}
           </button>
-        </div>
-        <div class="flex items-center justify-between">
-          <div class="flex items-center">
-            <input
-              id="remember_me"
-              name="remember_me"
-              type="checkbox"
-              class="
-                h-4
-                w-4
-                text-myBlue-light
-                focus:ring-myBlue-primary
-                border-myBlue-primary
-                rounded
-              "
-            />
-            <label
-              for="remember_me"
-              class="ml-2 block text-sm text-myBlue-primary"
-            >
-              {{ $t("login.remember_me") }}
-            </label>
-          </div>
-
-          <div class="text-sm">
-            <a
-              href="#"
-              class="font-medium text-myBlue-primary hover:text-myBlue-light"
-            >
-              {{ $t("login.forget_your_password") }}
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -232,35 +260,76 @@ import moment from "moment";
 import { mapState, mapActions } from "vuex";
 export default {
   computed: mapState({
-    currentUser: (state) => state.user.currentUser,
-    currentCaptchaImage: (state) => state.user.currentCaptchaImage,
+    currentUser: (state) => state.currentUser,
   }),
   data() {
-    var timestamp = moment().format("YYYYMMDDHHMMSS");
     return {
       email: "",
+      nickname: "",
       password: "",
-      captchaSrc: "",
+      repeat_password: "",
       captcha_code: "",
+      captchaSrc: "",
+      captcha_key: ""
     };
   },
 
   async created() {
-    await this.$store.dispatch("user/getSessionToken");
-    await this.$store.dispatch("user/getCaptchaImage", { case: "login" });
+    await this.getToken();
+    await this.createCaptchaImage();
   },
   methods: {
-    async getToken() {},
-    async login() {
-      this.$store.dispatch("user/loginAction", {
-        email: this.email,
-        password: this.password,
-        code: this.captcha_code,
-        captcha_key: this.currentCaptchaImage.key,
-      });
+    async getToken() {
+      let token = sessionStorage.getItem("sd_session_token");
+      let params = {}
+      if(token) {
+        params.token = token
+      }
+
+      let result = await axios.post(
+        "/platform/api/account/get_session_token",
+        params
+      );
+      console.log(result);
+      if(result.data.code !== '0') {
+        alert(result.data.message)
+        sessionStorage.removeItem("sd_session_token")
+        return
+      }
+      console.log(' result.data.data.token:',  result.data.data.token)
+      sessionStorage.setItem("sd_session_token", result.data.data.token)
+
     },
-    async refreshCaptchaImage() {
-      await this.$store.dispatch("user/getCaptchaImage", { case: "login" });
+    async regist() {
+      let token = sessionStorage.getItem("sd_session_token");
+      let result = await axios.post(
+        "/platform/api/account/regist",
+        {
+          nickname: this.nickname,
+          email: this.email,
+          password: this.password,
+          captcha_code: this.captcha_code,
+          token: token,
+          captcha_key: this.captcha_key
+        }
+      );
+      console.log(result);
+      if(result.data.code !== 0) {
+        alert(result.data.message)
+      }
+    },
+    async createCaptchaImage() {
+      let token = sessionStorage.getItem("sd_session_token");
+      let result = await axios.post(
+        "/platform/api/account/captcha/create_image",
+        {
+          token: token,
+          case: "regist",
+        }
+      );
+      console.log(result);
+      this.captcha_key = result.data.data.image
+      this.captchaSrc = `/platform/api/account/captcha/image/${result.data.data.image}?case=regist`;
     },
   },
 };

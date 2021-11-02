@@ -5,10 +5,10 @@ export default {
     return await base.webAPI("/platform/api/account/login", params.data, params.header)
   },
   getCaptchaImage: async function(params: any) {
-    return await base.webAPI("/platform/api/account/get_login_captach_image", params.data, params.header)
+    return await base.webAPI("/platform/api/account/captcha/create_image", params.data, params.header)
   },
-  getCaptchaToken: async function(params: any) {
-    return await base.webAPI("/platform/api/account/get_login_captcha_token", params.data, params.header)
+  getSessionToken: async function(params: any) {
+    return await base.webAPI("/platform/api/account/get_session_token", params.data, params.header)
   }
 }
 

@@ -19,7 +19,7 @@ async function webAPI(url: string, data: object, header: object = {}, method: st
   if (result) {
     return { status: true, data: result.data, msg: MsgOk }
   } else {
-    return { status: false, data: err, msg: MsgErr }
+    return { status: false, data: {code: -1, err: err}, msg: MsgErr }
   }
 }
 

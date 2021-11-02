@@ -2,7 +2,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/platform/api': {
-        target: 'http://127.0.0.1:8088',
+        target: 'http://127.0.0.1:8080',
         changeOrigin: true,
         pathRewrite: {
           '^/platform/api': '/platform/api'

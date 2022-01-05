@@ -17,6 +17,7 @@ async function loginAction({ commit, state }, params: any = {}) {
   let result = await userAPI.login({data: {...params, token: state.currentSesstionToken}})
   if (result.status && result.data.code === '0') {
     commit('LOGIN_REQ_OK', result.data)
+    sessionStorage.setItem('current_user', JSON.stringify(result.data))
   } else {
     commit('SET_ERR_MSG', { "msg": "fail_to_login" })
   }
@@ -52,14 +53,25 @@ async function getSessionToken({ commit, state }, params: any = {}) {
   }
 }
 
+async function checkLoginSession({ commit, state }, params: any = {}) {
+  let current_user = sessionStorage.getItem("current_user")
+  console.log('current_user:', current_user)
+  if(current_user) {
+    commit('LOGIN_REQ_OK', JSON.parse(current_user))
+  }
+
+}
+
 const actions = {
   loginAction: loginAction,
   getCaptchaImage: getCaptchaImage,
-  getSessionToken: getSessionToken
+  getSessionToken: getSessionToken,
+  checkLoginSession: checkLoginSession
 }
 // mutationsg
 const mutations = {
   LOGIN_REQ_OK(state: any, payload: any) {
+    console.log('login_ok:', payload)
     state.currentUser = payload
   },
   LOGIN_REQ_FAIL(state: any, payload: any) {

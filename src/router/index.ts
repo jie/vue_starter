@@ -3,6 +3,9 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Regist from '../views/Regist.vue'
 import RegistConfirm from '../views/RegistConfirm.vue'
+import store from '../store'
+
+console.log('store:', store)
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -38,6 +41,13 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  console.log('from:', from, ', to:', to)
+  console.log('router:', router)
+  store.dispatch("user/checkLoginSession")
+  next()
 })
 
 export default router

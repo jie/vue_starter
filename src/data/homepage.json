@@ -67,7 +67,7 @@
             "name": "中文",
             "name_jp": "中文",
             "name_en": "中文",
-            "value": "cn"
+            "value": "zh"
           },
           {
             "name": "English",
@@ -151,7 +151,7 @@
   "workflow": {
     "name": "工作流程",
     "name_jp": "工作流程",
-    "name_en": "Wortflow",
+    "name_en": "Workflow",
     "items": [{
         "id": 1,
         "name": "提出开发需求",

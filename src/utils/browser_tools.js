@@ -3,7 +3,7 @@
 function getBrowserLocale() {
     var jsSrc = (navigator.language || navigator.browserLanguage).toLowerCase();
     if (jsSrc.indexOf('zh') != -1) {
-        return "cn"
+        return "zh"
     }
     else if (jsSrc.indexOf('jp') != -1 || jsSrc.indexOf('jap') != -1) {
         return "jp"
@@ -12,7 +12,7 @@ function getBrowserLocale() {
         return "en"
     }
     else {
-        return "cn"
+        return "zh"
     }
 }
 

@@ -1,5 +1,5 @@
 function translate(key, obj, locale) {
-  if (locale == 'cn') {
+  if (locale == 'zh') {
     return obj[key] || ''
   } else {
     return obj[`${key}_${locale}`] || ''

@@ -25,19 +25,14 @@
       "
     >
       <div>
-        <img
-          class="mx-auto h-12 w-auto"
-          src="../assets/helloSaas.png"
-          alt="Workflow"
-        />
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-blue-900">
           {{ $t("login.sign_in_to_your_account") }}
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
           {{ $t("base.or") }}
           <router-link
             :to="{ name: 'Regist' }"
-            class="font-medium text-myBlue-primary hover:text-myBlue-light"
+            class="font-medium text-blue-800 hover:text-myBlue-primary"
           >
             {{ $t("login.regist_a_new_account") }}
           </router-link>
@@ -70,7 +65,7 @@
                 rounded-t-md
                 focus:outline-none
                 focus:ring-myBlue-primary
-                focus:border-myBlue-light
+                focus:border-blue-800
                 focus:z-10
                 sm:text-sm
               "
@@ -100,7 +95,7 @@
                 text-gray-900
                 focus:outline-none
                 focus:ring-myBlue-primary
-                focus:border-myBlue-light
+                focus:border-blue-800
                 focus:z-10
                 sm:text-sm
               "
@@ -130,7 +125,7 @@
                 rounded-b-md
                 focus:outline-none
                 focus:ring-myBlue-primary
-                focus:border-myBlue-light
+                focus:border-blue-800
                 focus:z-10
                 sm:text-sm
               "
@@ -161,7 +156,7 @@
               font-medium
               rounded-md
               text-white
-              bg-myBlue-light
+              bg-blue-800
               hover:bg-myBlue-primary
               focus:outline-none
               focus:ring-2
@@ -205,7 +200,7 @@
             />
             <label
               for="remember_me"
-              class="ml-2 block text-sm text-myBlue-primary"
+              class="ml-2 block text-sm text-blue-800 hover:text-myBlue-primary"
             >
               {{ $t("login.remember_me") }}
             </label>
@@ -214,7 +209,7 @@
           <div class="text-sm">
             <a
               href="#"
-              class="font-medium text-myBlue-primary hover:text-myBlue-light"
+              class="font-medium text-blue-800 hover:text-myBlue-primary"
             >
               {{ $t("login.forget_your_password") }}
             </a>

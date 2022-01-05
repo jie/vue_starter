@@ -17,7 +17,7 @@
 // @ is an alias to /src
 import Myheader from "@/components/header.vue";
 import Mybody from "@/components/body.vue";
-import Myfooter from "@/components/footer.vue";
+import Myfooter from "@/components/Footer.vue";
 import Myworkflow from "@/components/workflow.vue";
 import homepageSettings from "@/data/homepage"
 

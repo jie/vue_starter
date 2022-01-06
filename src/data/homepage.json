@@ -82,6 +82,16 @@
             "value": "jp"
           }
         ]
+      },
+      {
+        "name": "我的",
+        "name_jp": "我的",
+        "name_en": "Profile",
+        "link": "/user/profile",
+        "icon": {
+          "type": "setting-config",
+          "size": 24
+        }
       }
     ]
   },

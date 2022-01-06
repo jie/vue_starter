@@ -19,7 +19,7 @@
               relative
               text-base
             "
-            v-for="item in settings.menu.items"
+            v-for="item in currentMenu"
             :key="item.name"
           >
             <router-link
@@ -32,7 +32,14 @@
                 justify-center
                 items-center
               "
-              ><span>{{ $transData("name", item) }}</span>
+              ><span v-if="!item.icon">{{ $transData("name", item) }}</span>
+              <icon-park
+                :type="item.icon.type"
+                :size="item.icon.size"
+                theme="filled"
+                fill="#fff"
+                v-else
+              />
             </router-link>
 
             <div
@@ -66,7 +73,8 @@
                 left-0
                 text-gray-50
                 rounded-bl-lg rounded-br-lg
-                filter drop-shadow-lg
+                filter
+                drop-shadow-lg
               "
               v-if="item.items && item.show_sub"
             >
@@ -120,13 +128,8 @@
         >
         <div
           v-else
-          class="
-            text-gray-200 text-center
-            font-bold
-            text-lg
-            h-12
-          "
-          style="line-height: 48px;"
+          class="text-gray-200 text-center font-bold text-lg h-12"
+          style="line-height: 48px"
           @click="onToggleSubmenu(item)"
         >
           <span>{{ $transData("name", item) }}</span
@@ -159,6 +162,7 @@
 </style>
 
 <script>
+import { mapState, mapActions } from "vuex";
 import { IconPark } from "@icon-park/vue-next/es/all";
 export default {
   props: {
@@ -171,6 +175,30 @@ export default {
   },
   components: {
     IconPark,
+  },
+  computed: mapState({
+    currentUser: (state) => {
+      return state.user.currentUser;
+    },
+    currentMenu: function () {
+      let items = [];
+      for (let item of this.settings.menu.items) {
+        if (item.link == "/account/login" || item.link == "/account/regist") {
+          if (this.currentUser) {
+            continue;
+          }
+        } else if (item && item.link == "/user/profile") {
+          if (!this.currentUser) {
+            continue;
+          }
+        }
+        items.push(item);
+      }
+      return items;
+    },
+  }),
+  created() {
+    console.log("current_user1111:", this.currentUser);
   },
   data() {
     return {
@@ -192,6 +220,23 @@ export default {
     setLanguage(item) {
       this.$i18n.locale = item.value;
       localStorage.setItem("locale", item.value);
+    },
+    isShowMenuItem(item) {
+      console.log(item);
+      console.log("current_user:", this.currentUser);
+      if (
+        item &&
+        (item.link == "/account/login" || item.link == "/account/regist")
+      ) {
+        if (this.currentUser) {
+          return false;
+        }
+      } else if (item && item.link == "/user/profile") {
+        if (!this.currentUser) {
+          return false;
+        }
+      }
+      return true;
     },
   },
 };
